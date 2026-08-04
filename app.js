@@ -125,7 +125,7 @@ saveToDb("apna college")
         console.log("result of promise",result);
         return saveToDb("shraddha");
     })
-    .theb((result)=>{
+    .then((result)=>{
         console.log("data3 saved");
         console.log("result of promise",result);
     })
@@ -135,3 +135,5 @@ saveToDb("apna college")
     });
 //__________________________________________________________________________________________________________________________________________________________________________________
 
+//Javascript unit 12
+saveToDb("shradha khapra");
