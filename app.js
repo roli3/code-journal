@@ -136,4 +136,74 @@ saveToDb("apna college")
 //__________________________________________________________________________________________________________________________________________________________________________________
 
 //Javascript unit 12
-saveToDb("shradha khapra");
+//async functions
+// async and await keywords
+//all async functions return a promise
+
+async function greet(){
+    // throw "some random error";
+    return "hello";
+}
+
+greet()
+.then(()=>{
+    console.log("promise was successful");
+
+})
+.catch((err)=>{
+    console.log("promise was rejected");
+});
+//___________________________________________________________________________________________________________________________________________________________________________________
+
+//await keyword - pauses the execution of it's surrounding async function until the promise is settled (resolved or rejected).
+function getNum(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            let num = Math.floor(Math.random()*10)+1;
+            console.log(num);
+            resolve();
+        }, 1000);
+    });
+}
+async function demo(){
+   await getNum();
+   await getNum();
+   await getNum();
+}
+//_________________________________________________________________________________________________________________________________________
+
+//await keyword- handling rejections with await
+
+h1 = document.querySelector("h1");
+function changeColor(color, delay){
+
+    return new Promise((resolve, reject)=>){
+        setTimeout(()=>{
+            let num = Math.floor(Math.random()*5)+1;
+            if(num>3){
+                reject("promise rejected");
+            }
+            h1.style.color = color;
+            console.log(`coloe changed to ${color}!`);
+            resolve("color changed");
+        }, delay);
+    }
+}
+async function demo2(){
+    try{
+        await changeColor("red", 1000);
+        await changeColor("orange", 1000);
+        await changeColor("green", 1000);
+        await changeColor("blue", 1000);
+    }
+    catch(err){
+
+        console.log("error caught");
+        console.log(err);
+    }
+
+    let a = 5;
+    console.log(a);
+    console.log("new number = ", a+3);
+
+}
